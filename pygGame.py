@@ -15,7 +15,7 @@ class win(tk.Tk):
         self.geometry("1920x1080")
         self.configure(bg = "#781F0C")
         self.text = Label(self, text = "You Lost!", font = "Helvetica 24", bg = "#781F0C", fg = "#FFFFFF").place(relx=.5, rely=.1)
-        self.butt = Button(self, text = "Click Here to Try Again", command = lambda:self.runAgain(), font = "Helvetica 20", bg = "#000000", fg = "#FFFFFF").place(relx=.4, rely=.5)
+        self.butt = Button(self, text = "Click Here to Try Again", command = lambda:self.runAgain(), font = "Helvetica 20", bg = "#781F0C", fg = "#FFFFFF").place(relx=.4, rely=.5)
     def runAgain(self):
         self.destroy()
         runGame()
