@@ -36,6 +36,10 @@ class Asteroid():
         self.wordRect = self.wordRect.move([0,2.5])
         scr.blit(self.ast, self.astRect)
         scr.blit(self.wordRender, self.wordRect)
+    def check(self):
+        if self.astRect.bottom > 1080:
+            return False
+        else:return True
 
 
 class Scoreboard():
@@ -81,13 +85,16 @@ while True:
     curWordRender = font.render(curWord, True, white, black)
     clock.tick(60)
     screen.blit(bg, (0,0))
-    print(time.time() - start)
     if time.time() - start >= 1:
         a = Asteroid()
         asteroids.append(a)
         start = time.time()
     for i in range(len(asteroids)):
         asteroids[i].asteroidMove(screen)
+    for i in range(len(asteroids)):
+        if asteroids[i].check() == False:
+            pygame.quit()
+            sys.exit()
     screen.blit(curWordRender,curWordRect)
     pygame.display.flip()
     
