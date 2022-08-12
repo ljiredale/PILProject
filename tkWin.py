@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import *
 from PIL import Image, ImageTk
 from pygGame import runGame
-from scndWin import mainWinn
 class mainWin(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -24,8 +23,7 @@ class mainWin(tk.Tk):
         self.label2.place(x=0,y=0)
         self.after(10000,lambda: self.playFirstGame())
     def playFirstGame(self):
-        self.withdraw()
-        if runGame():
-            mWW = mainWinn()
-            mWW.mainloop()
+        self.destroy()
+        runGame()
+        
         

@@ -12,7 +12,7 @@ class mainWinn(tk.Tk):
         self.label1 = Label(image = self.startImgPI)
         self.label1.image = self.startImgPI
         self.label1.place(x=0,y=0)
-        self.after(3000, lambda: self.runNext())
+        self.after(10000, lambda: self.runNext())
     def runNext(self):
         self.label1.destroy()
         self.startImg2 = Image.open("images/astRock.png")
@@ -23,4 +23,5 @@ class mainWinn(tk.Tk):
         self.label2.place(x=0,y=0)
         self.after(10000,lambda: self.runAsteroids())
     def runAsteroids(self):
+        self.destroy()
         run()

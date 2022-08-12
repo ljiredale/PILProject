@@ -4,6 +4,7 @@ import tkinter as tk
 import os
 import sys
 import random
+from scndWin import mainWinn
 bul = pygame.image.load("images/bullet.png")
 ene = pygame.image.load("images/enemy.png")
 bullets = []
@@ -31,6 +32,12 @@ def enemyCreate():
     eneRect = ene.get_rect()
     eneRect = eneRect.move(random.randint(100,1800),random.randint(0,300))
     enemies.append(eneRect)
+def leave():
+    pygame.quit()
+    sys.exit()
+def runWin():
+    mWW = mainWinn()
+    mWW.mainloop()
 def runGame():
     pygame.init()
     size = width, height = 1920, 1080
@@ -46,7 +53,8 @@ def runGame():
         enemyx.append(random.randint(-1,1))
         enemyy.append(random.randint(-1,1))
     count = 0
-    while 1:
+    T = True
+    while T == True:
         count += 1
         for event in pygame.event.get():
             if event.type == pygame.QUIT: sys.exit()
@@ -91,8 +99,8 @@ def runGame():
                     lost()
 
         if len(enemies) == 0 and count > 101:
-            return True
-                        
+            pygame.quit()
+            runWin()
                     
         for i in range(len(enemies)):
             if enemies[i].left < 0 or enemies[i].right > width:
@@ -112,3 +120,4 @@ def runGame():
             screen.blit(ene, enemies[i])
         screen.blit(ball, ballrect)
         pygame.display.flip()
+    leave()

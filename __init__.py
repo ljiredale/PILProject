@@ -3,8 +3,8 @@
 #08/08/22
 
 from tkWin import mainWin
-
-def start():
+#Start of the code
+def start():  
     mW = mainWin()   
     mW.mainloop() 
-start() 
+start()    
