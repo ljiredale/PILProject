@@ -6,5 +6,5 @@ from tkWin import mainWin
 
 def start():
     mW = mainWin()   
-    mW.mainloop()
-start()
+    mW.mainloop() 
+start() 

@@ -1,7 +1,8 @@
 import pygame
 from tkinter import *
 import tkinter as tk
-import os, sys
+import os
+import sys
 import random
 bul = pygame.image.load("images/bullet.png")
 ene = pygame.image.load("images/enemy.png")
@@ -15,7 +16,7 @@ class win(tk.Tk):
         self.geometry("1920x1080")
         self.configure(bg = "#781F0C")
         self.text = Label(self, text = "You Lost!", font = "Helvetica 24", bg = "#781F0C", fg = "#FFFFFF").place(relx=.5, rely=.1)
-        self.butt = Button(self, text = "Click Here to Try Again", command = lambda:self.runAgain(), font = "Helvetica 20", bg = "#781F0C", fg = "#FFFFFF").place(relx=.4, rely=.5)
+        self.butt = Button(self, text = "Click Here to Try Again", command = lambda:self.runAgain(), font = "Helvetica 20", bg = "#000000", fg = "#FFFFFF").place(relx=.4, rely=.5)
     def runAgain(self):
         self.destroy()
         runGame()
@@ -87,7 +88,6 @@ def runGame():
                 if enemies[k].colliderect(ballrect):
                     enemies.clear()
                     bullets.clear()
-                    pygame.quit()
                     lost()
 
         if len(enemies) == 0 and count > 101:
